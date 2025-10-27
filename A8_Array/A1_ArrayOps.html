@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Array Ops...</h1>
+
+    <script>
+
+        let arr = [];
+
+        for (let i = 0; i < 5; i++) {
+            let val = parseInt(prompt("Enter " + (i + 1) + " element of array"));
+            arr[i] = val;
+        }
+
+        for (let i = 0; i <= arr.length; i++) {
+            console.log(arr[i]);
+        }
+
+        arr.push(100);
+
+        for (let i = 0; i <= arr.length; i++) {
+            console.log(arr[i]);
+        }
+
+        let removed = arr.pop();
+        console.log("Removed = " + removed);
+        for (let i = 0; i <= arr.length; i++) {
+            console.log(arr[i]);
+        }
+
+        arr.unshift(10);
+        for (let i = 0; i <= arr.length; i++) {
+            console.log(arr[i]);
+        }
+
+        removed = arr.shift();
+        console.log("Removed = " + removed);
+        for (let i = 0; i <= arr.length; i++) {
+            console.log(arr[i]);
+        }
+
+        arr.sort(function (a, b) {
+            return a - b;   // Ascending order
+        });
+
+    </script>
+
+</body>
+
+</html>

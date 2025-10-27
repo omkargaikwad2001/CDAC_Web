@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table, tr, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 0.4rem;
+        }
+    </style>
+</head>
+<body>
+    
+    <form action="#" method="get">
+        <table>
+
+            <tr>
+                <td>Birth Date</td>
+                <td><input type="date" name="bdate" required></td>
+            </tr>
+
+            <tr>
+                <td>Birth Time</td>
+                <td><input type="time" name="btime" required></td>
+            </tr>
+
+            <tr>
+                <td>Email</td>
+                <td>
+                    <input type="email" name="ema" maxlength="15" placeholder="Enter your email" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input type="text" name="nam" list="namelist" placeholder="Select or enter your name" required>
+                    <datalist id="namelist">
+                        <option value="Omkar">
+                        <option value="Rahul">
+                        <option value="Sneha">
+                        <option value="Priya">
+                        <option value="Aarav">
+                    </datalist>
+                </td>
+            </tr>
+
+            <tr>
+                <td><input type="submit"></td>
+                <td><input type="reset"></td>
+            </tr>
+
+        </table>
+    </form>
+
+</body>
+</html>

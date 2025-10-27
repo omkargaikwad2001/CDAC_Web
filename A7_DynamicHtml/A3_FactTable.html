@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        table,tr,td{
+            background-color: red;
+            border: 1px solid black;
+            border-collapse: collapse;
+            font-size: 1.5rem;
+            padding: 1rem;
+        }
+
+        button{
+            margin: 2rem;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <button onclick="calcFact()">Factorial Table</button>
+
+    <table>
+        <tr>
+            <td>Number</td>
+            <td>Factorial</td>
+        </tr>
+        
+        <tbody id="tab">
+
+        </tbody>
+
+    </table>
+
+
+    <script>
+
+        function fact(n){
+            let ans = 1;
+            for(let i=1;i<=n;i++){
+                ans*=i;
+            }
+            return ans;
+        }
+
+        function calcFact(){
+            
+            let n = parseInt(prompt("Enter number to get factorial till that number...")); 
+            let str="";
+            for(let i=1;i<=n;i++){
+                str+="<tr>"
+                str+="<td>"
+                str+=i;        
+                str+="</td>"    
+                str+="<td>"
+                str+=fact(i);    
+                str+="</td>"    
+                str+="</tr>"
+                document.getElementById("tab").innerHTML=str;
+            }
+            
+        }
+
+    </script>
+    
+</body>
+</html>

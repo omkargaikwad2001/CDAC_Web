@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,tr,td{
+            background-color: red;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    
+    <table>
+        <tr>
+            <td>Enter Base Number</td>
+            <td><input type="number" id="base"></td>
+        </tr>
+        
+        <tr>
+            <td>Enter Exponent Number</td>
+            <td><input type="number" id="exp"></td>
+        </tr>
+
+        <tr>
+            <td><button onclick="calcPower()">POWER</button></td>
+        </tr>
+    </table>
+
+    <h3 id="ans"></h3>
+
+    <script>
+
+        function calcPower(){
+            let base = document.getElementById("base").value;
+            let exp = document.getElementById("exp").value;
+            
+            document.getElementById("ans").innerHTML=base+" to the power "+exp+" is "+(base**exp);
+
+        }
+
+
+    </script>
+
+</body>
+</html>

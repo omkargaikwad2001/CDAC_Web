@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Form</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            
+        }
+        
+        body{
+            background-color: aqua;
+            height: 100%;
+            width: 100%;
+        }
+
+        .head{
+            height: 20vh;
+            width: 100%;
+            background-color: black;
+            color: antiquewhite;
+            font-size: 2rem;
+        }
+
+        .side{
+            background-color: red;
+            width: 20%;
+            height: 80vh;
+            float: left;
+        }
+
+        .main{
+            background-color: bisque;
+            height: 80vh;
+            width: 80%;
+            float: right;
+        }
+
+        .main h1,p,form{
+            padding: 1rem;
+            font-size: 1.2rem;
+        }
+
+        h1{
+            display: inline;
+            padding-left: 2rem;
+        }
+
+        img{
+            height: 10%;
+            padding-left: 3rem;
+            padding-top: 1rem;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="head">
+        <h1>Fist Northen Bank</h1>
+        <img src="/Images/bank.jpg" alt="">
+    </div>
+    <div class="side">
+        <!-- This is side  -->
+    </div>
+    <div class="main">
+
+        <h1>New User Registration</h1>
+        <p>In order to use FNB's All Day Banking Services, please complete the following details.</p>
+
+        <form action="" method="get">
+
+            <table>
+                <tr>
+                    <td>Last name</td>
+                    <td><input type="text" name="lname" id=""></td>
+                </tr>
+
+                <tr>
+                    <td>First name</td>
+                    <td><input type="text" name="fname" id=""></td>
+                </tr>
+                
+                <tr>
+                    <td>Your prefered user id</td>
+                    <td><input type="number" name="lname" id=""></td>           
+                </tr>
+
+                <tr>
+                    <td>Email</td>
+                    <td><input type="email" name="email"></td>
+                </tr>
+
+                <tr>
+                    <td>Account number</td>
+                    <td><input type="number" name="anum"></td>
+                </tr>
+
+                <tr>
+                    <td>Credit card number</td>
+                    <td><input type="number" name="cnum"></td>
+                </tr>
+
+                <tr>
+                    <td>Online password</td>
+                    <td><input type="password" name="pass"></td>
+                </tr>
+
+                <tr>
+                    <td>Online password(repeated)</td>
+                    <td><input type="password"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Clear">
+                    </td>
+                </tr>
+            </table>
+
+        </form>
+
+    </div>
+    
+</body>
+</html>

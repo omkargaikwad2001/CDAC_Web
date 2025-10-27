@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        body {
+            /* background-image: url(/Images/flowers.jpg); */
+            /* background-size: cover; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+            background-color: antiquewhite;
+        }
+
+        .cir {
+            border-radius: 50%;
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            z-index: 1;
+        }
+
+        #d1 {
+            background-color: red;
+            /* padding: 2rem; */
+            margin-top: 5rem;
+        }
+        
+        #d2 {
+            background-color: blue;
+            margin-top: 10rem;
+        }
+        
+        #d3 {
+            background-color: green;
+            margin-top: 20rem;
+        }
+
+        .cir:hover{
+            z-index: 99;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="d1" class="cir">A</div>
+    <div id="d2" class="cir"></div>
+    <div id="d3" class="cir"></div>
+
+</body>
+
+</html>

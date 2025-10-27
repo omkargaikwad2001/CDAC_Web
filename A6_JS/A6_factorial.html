@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Factorial</h1>
+
+    <button onclick="calcFact()">Click To Calculate Factorial</button>
+
+    <h3 id="ans"></h3>
+
+
+
+    <script>
+        function fact(n) {
+            let fact = 1;
+            for (let i = 1; i <= n; i++) {
+                fact = fact * i;
+            }
+            return fact;
+        }
+
+        function calcFact() {
+            let n = parseInt(prompt("Enter number to calculate factorial..."));
+            
+            // in element
+            
+            // doc.write
+            // document.write("Factorial of doc.write " + n + " is " + fact(n));
+            
+            document.getElementById("ans").innerHTML = "Factorial of ele" + n + " is " + fact(n);
+           
+            // alert
+            alert("Factorial of alert " + n + " is " + fact(n));
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

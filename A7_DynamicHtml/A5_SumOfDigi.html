@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Sum of digit...</h1>
+    <h3 id="ans"></h3>
+
+
+    <script>
+
+        let n = parseInt(prompt("Enter number"));
+
+        let og = n;
+        let sum = 0;
+
+        let lastD = 0;
+        while (n > 0) {
+            lastD = n % 10;
+            sum = parseInt(sum + lastD);
+            n = n / 10;
+        }
+
+        console.log(sum);
+        document.getElementById("ans").innerHTML = "Sum of " + og + " is " + sum;
+
+    </script>
+</body>
+
+</html>

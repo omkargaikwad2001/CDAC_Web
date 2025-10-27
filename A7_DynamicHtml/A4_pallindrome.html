@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Program</title>
+</head>
+<body>
+
+    <h1>Palindrome Program</h1>
+    <h3 id="ans"></h3>
+    <script>
+        let n = parseInt(prompt("Enter number"));
+        let original = n;
+        let rev = 0;
+
+        while (n > 0) {
+            let ldigit = n % 10;           // Get last digit
+            rev = rev * 10 + ldigit;       // Build reversed number
+            n = Math.floor(n / 10);        // Remove last digit
+        }
+
+        if (rev === original) {
+            console.log(original + " is a Palindrome");
+            document.getElementById("ans").innerHTML=original + " is a Palindrome";
+        } else {
+            console.log(original + " is NOT a Palindrome");
+            document.getElementById("ans").innerHTML=original + " is not a Palindrome";
+        }
+    </script>
+    
+</body>
+</html>
