@@ -1,15 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #heading {
+      background-color: antiquewhite;
+      height: 20vh;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #side {
+      background-color: aqua;
+      height: 80vh;
+      width: 20%;
+      float: left;
+      padding: 2rem;
+      font-size: 1.2rem;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      margin-bottom: 1rem;
+    }
+
+    a {
+      text-decoration: underline;
+      color: black;
+    }
+
+    #mainframe {
+      background-color: blueviolet;
+      height: 80vh;
+      width: 80%;
+      float: left;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
 </head>
+
 <body>
 
-    <table>
-        
-    </table>
-    
+  <div id="heading">
+    Name of Candidate
+  </div>
+
+  <div id="side">
+    <ul>
+      <li><a href="A5_personalD.html" target="contentFrame">Personal Details</a></li>
+      <li><a href="A5_AcadmicQual.html" target="contentFrame">Academic Qualification</a></li>
+      <li><a href="A5_Exp.html" target="contentFrame">Professional Experience</a></li>
+      <li><a href="A5_ContactD.html" target="contentFrame">Contact Details</a></li>
+    </ul>
+  </div>
+
+  <div id="mainframe">
+    <iframe name="contentFrame" src=""></iframe>
+  </div>
+
 </body>
 </html>
