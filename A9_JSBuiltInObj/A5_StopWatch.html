@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stopwatch</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      width: 100vw;
+      background-color: antiquewhite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+    }
+
+    .clockContainer {
+      height: 30%;
+      width: 50%;
+      background-color: aquamarine;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px gray;
+    }
+
+    .box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button {
+      font-size: 1.5rem;
+      padding: 1rem;
+      margin: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: lightcoral;
+      color: white;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background-color: crimson;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="clockContainer" id="clo">00:00:00</div>
+
+  <div class="box">
+    <button onclick="start()">Start</button>
+    <button onclick="pause()">Pause</button>
+    <button onclick="reset()">Reset</button>
+  </div>
+
+  <script>
+    let hh = 0, mm = 0, ss = 0;
+    let timer = null;
+    let running = false;
+
+    function displayTime() {
+      // Format time with leading zeros
+      const timeStr = 
+        (hh < 10 ? "0" + hh : hh) + ":" +
+        (mm < 10 ? "0" + mm : mm) + ":" +
+        (ss < 10 ? "0" + ss : ss);
+      document.getElementById("clo").innerHTML = timeStr;
+    }
+
+    function start() {
+      if (!running) {
+        running = true;
+        timer = setInterval(() => {
+          ss++;
+          if (ss === 60) {
+            ss = 0;
+            mm++;
+            if (mm === 60) {
+              mm = 0;
+              hh++;
+            }
+          }
+          displayTime();
+        }, 1000);
+      }
+    }
+
+    function pause() {
+      running = false;
+      clearInterval(timer);
+    }
+
+    function reset() {
+      running = false;
+      clearInterval(timer);
+      hh = mm = ss = 0;
+      displayTime();
+    }
+  </script>
+</body>
+</html>

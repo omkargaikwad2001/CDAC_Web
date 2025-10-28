@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>DOB Form</h1>
+
+    <form id="dobform" action="#" method="get">
+
+        <input type="date" name="dob" id="dd" value="">
+        <input type="submit" value="Get date">
+
+    </form>
+
+    <div id="date"></div>
+    <div id="day"></div>
+    <div id="month"></div>
+    <div id="year"></div>
+    <div id="age"></div>
+
+    <script>
+
+        let form = document.getElementById("dobform");
+
+        let day = ["sun","mon","tue","wed","thur","fri","sat"]; 
+
+        function calcAge(date){
+
+            let tody = new Date();
+            
+            return tody.getFullYear()-date.getFullYear();
+
+        }
+
+        form.addEventListener('submit',function(event){
+            event.preventDefault();
+            const dob = document.getElementById("dd").value;
+            document.getElementById("date").innerHTML="Date = "+dob;
+            const date = new Date(dob);
+            document.getElementById("day").innerHTML="Day = "+day[date.getDay()];
+            document.getElementById("month").innerHTML="Month = "+(date.getMonth()+1);
+            document.getElementById("year").innerHTML="Year = "+date.getFullYear();
+            document.getElementById("age").innerHTML="Age = "+calcAge(date);
+        })
+        
+
+    </script>
+    
+</body>
+</html>

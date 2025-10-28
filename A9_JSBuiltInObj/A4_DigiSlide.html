@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: antiquewhite;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .imgcontainer{
+            background-color: aqua;
+            height: 50%;
+            width: 50%;
+        }
+
+        img{
+            height: 100%;
+            width: 100%;
+        }
+
+
+    </style>
+
+</head>
+<body onload="slideShow()">
+
+    <div class="imgcontainer">
+        <img src="/Images/img1.jpg" alt="" id="imgmain">
+    </div>
+
+    <script>
+
+        let imgarr = ["/Images/img1.jpg","/Images/img2.jpg","/Images/img3.jpg","/Images/img4.jpg","/Images/img5.jpg",];
+
+        let ind = 0;
+
+        function slideShow(){
+            ind++;
+            if(ind>=imgarr.length){
+                ind=0;
+            }
+            document.getElementById("imgmain").src=imgarr[ind];
+            setTimeout(slideShow, 1000);
+        }
+
+
+    </script>
+    
+</body>
+</html>

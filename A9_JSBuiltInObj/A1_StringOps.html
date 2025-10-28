@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>String ops</h1>
+
+    <script>
+
+        let str = "OmkarOGk";
+
+        document.write("Length of "+str+" = "+str.length+"</br>");
+        
+        document.write("Upper case of "+str+" = "+str.toUpperCase()+"</br>");
+        
+        document.write("Lower case of "+str+" = "+str.toLowerCase()+"</br>");
+
+        if(str.includes('k')){
+            document.write("k present at front "+str.indexOf('k')+"</br>");
+            document.write("k present at last "+str.lastIndexOf('k')+"</br>");
+        }
+        else{
+            document.write("k not found"+"<br>");
+        }
+
+        document.write("Char at index 4 = "+str.charAt(4)+" ASCII val = "+str.charCodeAt(4)+"</br>");
+
+        let s1 = "Omkar";
+        let s2 = "OG";
+
+        document.write(s1.concat(s2)+"</br>");
+
+        for(let i=0;i<s1.length;i++){
+            document.write(s1[i]+" ");
+        }
+        document.write("</br>");
+        let ans = s1.split("");
+        let fans = ans.join("$");
+        // console.log(fans);
+        document.write(fans);
+
+    </script>
+
+</body>
+</html>
