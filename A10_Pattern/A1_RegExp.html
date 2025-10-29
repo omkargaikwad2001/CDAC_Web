@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Reg Exp</h1>
+
+    <script>
+
+        //1.1st char cap and rest are small
+        let pattern = /^[A-Z]{1}[a-z]{1,}$/;
+        let str = "Omkar";
+        document.write(pattern.test(str));
+        document.write("</br>");
+        
+        //2.full name first name space last name
+        let pattern2 = /^[A-Z]{1}[a-z]{1,} [A-Z]{1}[a-z]{1,}/
+        let str2 = "Omkar Gaikwad";
+        document.write(pattern2.test(str2));
+        document.write("</br>");
+
+        //3.mob num of 10 digits
+        let pattern3 = /^\d{10}$/
+        let str3 = "1234567890";
+        document.write(pattern3.test(str3));
+        document.write("</br>");
+
+        //4.country code with mob (091)-1234567890
+        let pattern4 = /^\([0-9]{3}\)\-[0-9]{10}$/
+        let str4 = "(091)-1234567890";
+        document.write(pattern4.test(str4));
+        document.write("</br>");
+
+        //5.email
+        let pattern5 = /^[\w]+@[a-z]{1,}\.[a-z]{1,}/
+        let str5 = "omkargaikwad2810@gmail.com";
+        document.write(pattern5.test(str5));
+        document.write("</br>");
+
+        //6. Course name PG-Dac 3-8
+        let pattern6 = /^PG-[A-Z]{3,8}$/
+        let str6 = "PG-DAC";
+        document.write(pattern6.test(str6));
+        document.write("</br>");
+
+        //7. Aadhar
+        let pattern7 = /^\d{4} \d{4} \d{4}$/
+        let str7 = "1234 5678 1234";
+        document.write(pattern7.test(str7));
+        document.write("</br>");
+
+        //8. 5 cap char 4 digit 1 cap (pancard number)
+        let pattern8 = /^[A-Z]{5}\d{4}[A-Z]{1}$/
+        let str8 = "AAAAA1234A";
+        document.write(pattern8.test(str8));
+        document.write("</br>");
+
+    </script>
+
+</body>
+</html>

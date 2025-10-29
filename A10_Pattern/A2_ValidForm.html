@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>This is login form</h1>
+
+    <form name="f1" action="#" method="get">
+
+        ID
+        <input type="text" name="login" id="login">
+        <span id="loginerr"></span>
+        </br>
+        </br>
+
+        Password
+        <input type="text" name="pwd" id="pwd">
+        <span id="pwderr"></span>
+        </br>
+        </br>
+
+        <input onclick="validate()" type="button" value="SUBMIT" id="btn">
+        </br>
+
+    </form>
+
+    <script>
+        function validate() {
+            let id = document.getElementById("login").value;
+            let pwd = document.getElementById("pwd").value;
+
+            let logerr = document.getElementById("loginerr");
+            let pwderr = document.getElementById("pwderr");
+
+            let pattern = /^[A-Za-z.]{5,15}$/;
+            let pattern2 = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/;
+
+            // ID blank check
+            if (id.length === 0) {
+                logerr.innerHTML = "Blank ID not allowed";
+                return;
+            } else {
+                logerr.innerHTML = "";
+            }
+
+            // ID validation
+            if (!pattern.test(id)) {
+                logerr.innerHTML = "ID must be 5–15 letters or dots only";
+                return;
+            } else {
+                logerr.innerHTML = "";
+            }
+
+            // Password blank check
+            if (pwd.length === 0) {
+                pwderr.innerHTML = "Blank password not allowed";
+                return;
+            } else {
+                pwderr.innerHTML = "";
+            }
+
+            // Password validation
+            if (!pattern2.test(pwd)) {
+                pwderr.innerHTML = "Password must be 8–15 chars, with at least 1 uppercase, 1 number & 1 special char";
+                return;
+            } else {
+                pwderr.innerHTML = "";
+            }
+
+            // alert("Login successful!");
+            document.f1.submit();
+        }
+    </script>
+
+
+</body>
+
+</html>

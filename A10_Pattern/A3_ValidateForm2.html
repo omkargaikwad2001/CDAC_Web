@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <form name="f1" action="" method="get">
+
+        Email
+        <input type="email" name="email" id="email">
+        <span id="emailerr"></span>
+        <br>
+        <br>
+
+        Occupation
+        <select name="occ" id="occ">
+            <option value="x">select occupation</option>
+            <option value="o1">OCC1</option>
+            <option value="o2">OCC2</option>
+            <option value="o3">OCC3</option>
+        </select>
+        <span id="occerr"></span>
+        <br>
+        <br>
+
+        <input type="radio" name="gender" value="male">Male
+        <input type="radio" name="gender" value="female">Female
+        <span id="generr"></span>
+        <br>
+        <br>
+
+        <input type="button" value="Submit" id="btn" onclick="validate()">
+
+    </form>
+
+    <script>
+
+        function validate() {
+
+            let email = document.getElementById("email").value;
+            let occ = document.getElementById("occ").value;
+            let gender = document.f1.gender.value;
+            
+            let emailerror = document.getElementById("emailerr");
+            let occerr = document.getElementById("occerr");
+            let generr = document.getElementById("generr");
+
+
+            //email validation
+            let pat = /^[\w]+@[a-z]{1,}\.[a-z]{1,}/
+            if(!(pat.test(email))){
+                emailerror.innerHTML="Not correct email format";
+            }
+            else{
+                emailerror.innerHTML="";
+            }
+
+            //occ valiation
+            if(document.f1.occ.value=="x"){
+                occerr.innerHTML="Select one occupation"
+            }
+            else{
+                occerr.innerHTML=""
+            }
+
+            //gender validation
+            if(document.f1.gender.value==""){
+                generr.innerHTML="Select one gender";
+            }
+            else{
+                generr.innerHTML="";
+            }
+
+            document.f1.submit();
+
+        }
+
+    </script>
+
+</body>
+
+</html>
