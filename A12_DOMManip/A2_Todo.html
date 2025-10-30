@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>MY To DO LIST</h1>
+    <input type="text" name="data" id="fdata" placeholder="Enter text...">
+    <button onclick="add()">Add Task</button>
+    <ul id="list">
+
+    </ul>
+    <button onclick="clearAll()">Clear All</button>
+
+    <script>
+
+        function add() {
+
+            let list = document.getElementById("list");
+            let child = document.createElement("li")
+            let data = document.getElementById("fdata").value;
+
+            child.innerText = data;
+            list.appendChild(child);
+            
+            document.getElementById("fdata").value="";
+
+        }
+
+        function clearAll() {
+            let list = document.getElementById("list");
+            list.innerHTML = "";
+            document.getElementById("fdata").value="";
+            
+        }
+
+    </script>
+
+</body>
+
+</html>

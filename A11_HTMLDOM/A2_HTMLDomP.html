@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        button,#pcont{
+            margin-top: 2rem;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <p>1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, corrupti.</p>
+    <p>2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, corrupti.</p>
+    <p>3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, corrupti.</p>
+    <p>4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, corrupti.</p>
+
+    <h1>This is heading 1</h1>
+    <h1>This is heading 2</h1>
+    <h1>This is heading 3</h1>
+
+    <input type="text" placeholder="Text box 1">
+    <input type="text" placeholder="Text box 2">
+    <input type="text" placeholder="Text box 3">
+
+    <div id="pcont"></div>
+
+    <button onclick="getPContent()">Get Para Content</button>
+    <button onclick="changeH1Color()">Change H1 color</button>
+    <button onclick="changeInputText()">Change Input color</button>
+
+    <script>
+        function getPContent() {
+            let pdiv = document.getElementById("pcont");
+            let cont = document.getElementsByTagName("p");
+
+            let html = "<table border='1' cellspacing='0' cellpadding='5'>";
+            for (let i = 0; i < cont.length; i++) {
+                html += "<tr><td>" + cont[i].tagName + "</td>";
+                html += "<td>" + cont[i].innerText + "</td></tr>";
+            }
+            html += "</table>";
+
+            pdiv.innerHTML = html;
+        }
+
+        function changeH1Color() {
+            let tags = document.getElementsByTagName("h1");
+            for (let i = 0; i < tags.length; i++) {
+                tags[i].style.color = "red";
+            }
+        }
+
+        function changeInputText(){
+
+            let ans = document.getElementsByTagName("input");
+            for(let i=0;i<ans.length;i++){
+                ans[i].style.backgroundColor="orange";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
