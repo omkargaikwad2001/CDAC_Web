@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Button Game</title>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      width: 100vw;
+    }
+
+    #area {
+      position: relative; /* ✅ Required for positioning inside */
+      border: 1px solid black;
+      height: 95vh;
+      width: 100vw;
+      background-color: aqua;
+      overflow: hidden;
+    }
+
+    .main {
+      background-color: rgb(184, 184, 21);
+    }
+
+    h1 {
+      margin-left: 35%;
+      padding: 1rem;
+    }
+
+    #btn {
+      position: absolute;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <h1>CLICK THE BUTTON TO WIN 🏆</h1>
+    <div id="area">
+      <button id="btn">CLICK ME</button>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+
+      // Move the button randomly every second
+      let interval = setInterval(moveButtonRandomly, 500);
+
+      function moveButtonRandomly() {
+        // Get area and button dimensions
+        let areaWidth = $("#area").width();
+        let areaHeight = $("#area").height();
+        let btnWidth = $("#btn").outerWidth();
+        let btnHeight = $("#btn").outerHeight();
+
+        // Generate random positions within bounds
+        let randomX = Math.floor(Math.random() * (areaWidth - btnWidth));
+        let randomY = Math.floor(Math.random() * (areaHeight - btnHeight));
+
+        // Apply new position
+        $("#btn").css({
+          left: randomX + "px",
+          top: randomY + "px"
+        });
+      }
+
+      // When user clicks, stop movement and show win message
+      $("#btn").click(function () {
+        clearInterval(interval);
+        alert("🎉 You Won!");
+      });
+
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            width: 570px;
+        }
+
+        h3.active {
+            background: #e9e7e7 url("images/down.png") no-repeat right -51px;
+        }
+
+        h3 {
+            background: #e9e7e7 url("images/up.png") no-repeat right 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .accordion p {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="accordion">
+        <h3 class="active">Question One Sample Text <button class="bt">▼</button> </h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi
+            malesuada, ante at feugiat tincidunt, enim massa gravida metus,
+            commodo lacinia massa diam vel eros. Proin eget urna. Nunc
+            fringilla neque vitae odio. Vivamus vitae ligula.
+        </p>
+
+        <h3 class="active">This is Question Two <button class="bt">▼</button></h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi
+            malesuada, ante at feugiat tincidunt, enim massa gravida metus,
+            commodo lacinia massa diam vel eros. Proin eget urna. Nunc
+            fringilla neque vitae odio. Vivamus vitae ligula.
+        </p>
+
+        <h3 class="active">Another Questio here <button class="bt">▼</button></h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi
+            malesuada, ante at feugiat tincidunt, enim massa gravida metus,
+            commodo lacinia massa diam vel eros. Proin eget urna. Nunc
+            fringilla neque vitae odio. Vivamus vitae ligula.
+        </p>
+
+        <h3 class="active">Sample heading <button class="bt">▼</button></h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi
+            malesuada, ante at feugiat tincidunt, enim massa gravida metus,
+            commodo lacinia massa diam vel eros. Proin eget urna. Nunc
+            fringilla neque vitae odio. Vivamus vitae ligula.
+        </p>
+
+        <h3 class="active">Sample Question Heading <button class="bt">▼</button></h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi
+            malesuada, ante at feugiat tincidunt, enim massa gravida metus,
+            commodo lacinia massa diam vel eros. Proin eget urna. Nunc
+            fringilla neque vitae odio. Vivamus vitae ligula.
+        </p>
+    </div>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $(".bt").click(function () {
+
+                let sign = $(this).text();
+
+                // console.log(sign.charCodeAt());
+
+                if (sign == "▲") {
+                    $(this).parent().next("p").slideUp();
+                    $(this).text("▼");
+                }
+                else {
+                    $(this).parent().next("p").slideDown();
+                    $(this).text("▲");
+                }
+            })
+        })
+
+    </script>
+
+</body>
+
+</html>

@@ -1,79 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Window Control Example</title>
-</head>
-<body>
-
-  <h2>Open and Control a New Window</h2>
-
-  <label>Width: </label>
-  <input type="number" id="winWidth" placeholder="e.g. 400"><br><br>
-
-  <label>Height: </label>
-  <input type="number" id="winHeight" placeholder="e.g. 300"><br><br>
-
-  <label>X Position: </label>
-  <input type="number" id="posX" placeholder="e.g. 200"><br><br>
-
-  <label>Y Position: </label>
-  <input type="number" id="posY" placeholder="e.g. 100"><br><br>
-
-  <label>Text to show in new window:</label><br>
-  <textarea id="winText" rows="4" cols="40" placeholder="Enter text here..."></textarea><br><br>
-
-  <button id="toggleBtn" onclick="toggleWindow()">Show Window</button>
-
-  <script>
-    let newWindow = null;
-    let isOpen = false;
-
-    function toggleWindow() {
-      const btn = document.getElementById("toggleBtn");
-      const width = document.getElementById("winWidth").value || 400;
-      const height = document.getElementById("winHeight").value || 300;
-      const posX = document.getElementById("posX").value || 200;
-      const posY = document.getElementById("posY").value || 100;
-      const text = document.getElementById("winText").value || "Hello! This is the new window.";
-
-      if (!isOpen) {
-        // Open the new window
-        newWindow = window.open("", "MyWindow", `width=${width},height=${height},left=${posX},top=${posY}`);
-
-        // Write clean HTML content
-        newWindow.document.body.innerHTML = `
-          <h2 style="font-family:Arial; text-align:center;">${text}</h2>
-          <div style="text-align:center;">
-            <button id="closeBtn">Close Window</button>
-          </div>
-        `;
-
-        // Add close button logic
-        const closeBtn = newWindow.document.getElementById("closeBtn");
-        closeBtn.addEventListener("click", () => {
-          if (confirm("Are you sure you want to close this window?")) {
-            newWindow.close();
-            btn.innerText = "Show Window";
-            isOpen = false;
-          }
-        });
-
-        btn.innerText = "Hide Window";
-        isOpen = true;
-      } else {
-        if (newWindow && !newWindow.closed) {
-          const confirmClose = confirm("Do you really want to close the window?");
-          if (confirmClose) {
-            newWindow.close();
-            btn.innerText = "Show Window";
-            isOpen = false;
-          }
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <script>
+        function getInfo() {
+            alert(window.location.href)
+            alert("moving to another page....")
+            //load another page
+            //window.location.href="errormsg.html";
+            window.status = "status msg"
         }
-      }
-    }
-  </script>
 
+        function openWin() {
+            //document.write("hello from window")
+            mywin = window.open("","","height=400,width=400")
+        }
+        function writeInWin() {
+            mywin.document.write("<h1>Hello from newly opened window</h1>")
+            mywin.document.body.style.backgroundColor="gray";
+        }
+        function focusIn() {
+            mywin.focus()
+        }
+
+        function closeWin() {
+            if(window.confirm("Do u want to close?"))
+                mywin.close();
+        }
+    </script>
+</head>
+<body onload="getInfo()">
+    <button onclick="openWin()">Open new window</button>
+    <br/>
+    <button onclick="writeInWin()" >Write in new window</button>
+    <br/>
+    <button onclick="focusIn()">Focus new window</button>
+    <br/>
+    <button onclick="closeWin()">Close new window</button>
 </body>
 </html>

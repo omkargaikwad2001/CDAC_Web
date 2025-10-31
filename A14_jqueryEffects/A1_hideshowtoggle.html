@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/jquery-3.7.1.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        img {
+            height: 50%;
+            width: 50%;
+        }
+
+        #btcont>button{
+            padding: 1rem;
+            font-size: 25px;
+            margin: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>This is SHOW HIDE TOGGLE demo</h1>
+    <img src="/Images/img5.jpg" alt="">
+    <div id="btcont">
+        <button id="show">SHOW</button>
+        <button id="hide">HIDE</button>
+        <button id="toggle">TOGGLE</button>
+    </div>
+    <h1>End</h1>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $("#show").click(function () {
+                $("img").show(2000);
+            })
+
+            $("#hide").click(function () {
+                $("img").hide(2000);
+            })
+
+            $("#toggle").click(function () {
+                $("img").toggle(2000);
+            })
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/jquery-3.7.1.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        img{
+            height: 200px;
+            width: 200px;
+        }
+
+        table,tr,td{
+            border: 3px solid black;
+            border-collapse: collapse;
+            padding: 0.5rem;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <table>
+
+        <tr>
+            <td><img src="/Images/content.jpg" alt="I1"></td>
+            <td><img src="/Images/flowers.jpg" alt="I2"></td>
+            <td><img src="/Images/img1.jpg" alt="I3"></td>
+        </tr>
+
+        <tr>
+            <td><img src="/Images/img2.jpg" alt=""></td>
+            <td><img src="/Images/img3.jpg" alt=""></td>
+            <td><img src="/Images/img4.jpg" alt=""></td>
+        </tr>
+
+        <tr>
+            <td><img src="/Images/img5.jpg" alt=""></td>
+            <td><img src="/Images/sunset.jpg" alt=""></td>
+            <td><img src="/Images/bank.jpg" alt=""></td>
+        </tr>
+
+    </table>
+
+    <script>
+        $(document).ready(function(){
+
+            $("img").mousedown(function(){
+                $(this).fadeOut(1000);
+            })
+
+            $("img").mouseup(function(){
+                $(this).fadeIn(1000);
+            })
+
+        })
+    </script>
+    
+</body>
+</html>

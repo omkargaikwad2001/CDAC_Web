@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/jquery-3.7.1.min.js"></script>
+    <style>
+        img{
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            Iphone <a href="#" class="open">View specifications</a>
+            <div class="details" style="display: none;">
+                <ul>
+                    <li><img src="/Images/img2.jpg" alt=""></li>
+                    <li>Iphone 17 Pro Max</li>
+                    <li>120Hz refresh rate</li>
+                    <li>50 MP triple camera</li>
+                </ul>
+                <a href="#" class="close">Close</a>
+            </div>
+        </li>
+
+        <li>
+            Moto <a href="#" class="open">View specifications</a>
+            <div class="details" style="display: none;">
+                <ul>
+                    <li><img src="/Images/img1.jpg" alt=""></li>
+                    <li>Moto Edge 60 Fusion</li>
+                    <li>120Hz refresh rate</li>
+                    <li>50 MP camera</li>
+                </ul>
+                <a href="#" class="close">Close</a>
+            </div>
+        </li>
+
+        <li>
+            Samsung <a href="#" class="open">View specifications</a>
+            <div class="details" style="display: none;">
+                <ul>
+                    <li><img src="/Images/img3.jpg" alt=""></li>
+                    <li>Samsung S25 ultra</li>
+                    <li>250Hz refresh rate</li>
+                    <li>150 MP triple camera</li>
+                </ul>
+                <a href="#" class="close">Close</a>
+            </div>
+        </li>
+
+    </ul>
+
+    <script>
+        $(document).ready(function () {
+
+            $("a.open").click(function () {
+                $(this).siblings(".details").slideDown(1000);
+            });
+
+            $("a.close").click(function () {
+                $(this).parent(".details").slideUp(1000);
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
