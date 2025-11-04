@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    background-color: aqua;
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+body {
+  background-repeat: no-repeat;         
+  background-size: cover;               
+  background-position: center center;  
+  background-attachment: fixed;         
+
+  height: 100vh;                        
+  width: 100%;                          
+}
+
+
+
