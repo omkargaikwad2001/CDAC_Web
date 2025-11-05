@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Employee Info</title>
+    <script>
+        // ---------- GET REQUEST ----------
+        function getEmpInfo() {
+            let empno = document.getElementById("empid").value;
+
+            let ajax = new XMLHttpRequest();
+            ajax.onreadystatechange = function () {
+                if (ajax.readyState === 4 && ajax.status === 200) {
+                    document.getElementById("info").innerHTML = ajax.responseText;
+                }
+            };
+
+            let url = "http://localhost:9000/empinfo?empno=" + empno;
+            ajax.open("GET", url, true);
+            ajax.send();
+        }
+
+        // ---------- POST REQUEST ----------
+        function postEmpInfo(event) {
+            event.preventDefault(); // prevent page reload
+
+            let empno = document.getElementById("empid").value;
+
+            let ajax = new XMLHttpRequest();
+            ajax.onreadystatechange = function () {
+                if (ajax.readyState === 4 && ajax.status === 200) {
+                    document.getElementById("info").innerHTML = ajax.responseText;
+                }
+            };
+
+            ajax.open("POST", "http://localhost:9000/empinfo", true);
+            ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            ajax.send("empno=" + empno);
+        }
+    </script>
+</head>
+<body>
+    <h2>Employee Information</h2>
+
+    <form onsubmit="postEmpInfo(event)">
+        Enter Emp No:
+        <input type="number" id="empid" name="empid" required />
+        <br><br>
+        <input type="submit" value="Get Info (POST)">
+        <input type="button" value="Get Info (GET)" onclick="getEmpInfo()">
+    </form>
+
+    <hr>
+    <div id="info"></div>
+</body>
+</html>

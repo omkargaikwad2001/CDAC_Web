@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Employees by Department</title>
+    <!-- ✅ Include jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#btnFetch").click(function (event) {
+                event.preventDefault(); // prevent form refresh
+                
+                let deptno = $("#deptno").val();
+                if (deptno.trim() === "") {
+                    alert("Please enter department number");
+                    return;
+                }
+
+                // ✅ AJAX request using jQuery
+                $.ajax({
+                    url: "http://localhost:9000/empbydept",
+                    method: "POST",
+                    data: { deptno: deptno },
+                    success: function (response) {
+                        $("#info").html(response);
+                    },
+                    error: function () {
+                        $("#info").html("<h3 style='color:red;'>Error fetching data</h3>");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>Find Employees by Department</h2>
+    <form>
+        Enter Dept No:
+        <input type="number" id="deptno" name="deptno" required />
+        <br><br>
+        <input type="submit" id="btnFetch" value="Get Employees" />
+    </form>
+
+    <hr>
+    <div id="info"></div>
+</body>
+</html>
