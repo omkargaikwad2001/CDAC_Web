@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Page</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: blue;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            width: 90%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>This is Question Page</h1>
+
+    <a class="topic" id="1">C++</a>
+    <a class="topic" id="2">C</a>
+    <a class="topic" id="3">Java</a>
+
+    <div class="data"></div>
+
+    <script>
+        $(document).ready(() => {
+
+            $(".topic").click(function() {
+                let sid = $(this).attr("id"); // get topic id
+                console.log("Fetching topic id:", sid);
+
+                $.get(`http://localhost:9000/getQuestions?sid=${sid}`, (response) => {
+                    if (response.length === 0) {
+                        $(".data").html("<h3>No questions found for this topic.</h3>");
+                        return;
+                    }
+
+                    // Build table with proper columns
+                    let html = `
+                        <table>
+                            <tr>
+                                <th>QID</th>
+                                <th>Question</th>
+                                <th>Option 1</th>
+                                <th>Option 2</th>
+                                <th>Option 3</th>
+                                <th>Option 4</th>
+                                <th>Answer</th>
+                                <th>Topic ID</th>
+                                <th>Name</th>
+                            </tr>
+                    `;
+
+                    response.forEach(q => {
+                        html += `
+                            <tr>
+                                <td>${q.qid}</td>
+                                <td>${q.qtext}</td>
+                                <td>${q.opt1}</td>
+                                <td>${q.opt2}</td>
+                                <td>${q.opt3}</td>
+                                <td>${q.opt4}</td>
+                                <td>${q.answer}</td>
+                                <td>${q.topicid}</td>
+                                <td>${q.name}</td>
+                            </tr>
+                        `;
+                    });
+
+                    html += "</table>";
+                    $(".data").html(html);
+                });
+            });
+
+        });
+    </script>
+
+</body>
+</html>

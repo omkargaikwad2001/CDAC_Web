@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <h1>This is Emp Details Page...</h1>
+    <input type="button" value="Show details" id="btnShow">
+
+    <div class="data"></div>
+
+    <script>
+        $(document).ready(function() {
+            $("#btnShow").click(function() {
+                $.get("http://localhost:9000/empinfo", function(response) {
+                    console.log(response);
+                    let html = "<table border='1' cellpadding='5'><tr><th>Emp ID</th><th>Name</th><th>Salary</th><th>Dept No</th><th>Manager?</th><th>Contacts</th></tr>";
+                    response.forEach(emp => {
+                        html += `<tr>
+                            <td>${emp.empid}</td>
+                            <td>${emp.name}</td>
+                            <td>${emp.salary}</td>
+                            <td>${emp.deptno}</td>
+                            <td>${emp.isManager}</td>
+                            <td>${emp.contact.join(", ")}</td>
+                        </tr>`;
+                    });
+                    html += "</table>";
+                    $(".data").html(html);
+                });
+            });
+        });
+
+    </script>
+
+</body>
+</html>

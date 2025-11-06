@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #e2e2e2;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>This is Employee Details Page (on Page Load)</h1>
+    <div class="data"></div>
+    
+    <script>
+        $(document).ready(() => {
+            $.get("http://localhost:9000/empinfo", (response) => {
+                let html = `
+                    <table>
+                        <tr>
+                            <th>Emp ID</th>
+                            <th>Name</th>
+                            <th>Salary</th>
+                            <th>Dept No</th>
+                            <th>Is Manager</th>
+                            <th>Contact Numbers</th>
+                        </tr>
+                `;
+
+                response.forEach(emp => {
+                    html += `
+                        <tr>
+                            <td>${emp.empid}</td>
+                            <td>${emp.name}</td>
+                            <td>${emp.salary}</td>
+                            <td>${emp.deptno}</td>
+                            <td>${emp.isManager}</td>
+                            <td>${emp.contact.join(", ")}</td>
+                        </tr>
+                    `;
+                });
+
+                html += `</table>`;
+                $(".data").html(html);
+            });
+        });
+    </script>
+
+</body>
+</html>
