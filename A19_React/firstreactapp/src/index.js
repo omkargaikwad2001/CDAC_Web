@@ -25,6 +25,9 @@ import { HeaderBoot } from './Components/C18_HeaderBoot';
 import { UpdatingPhase } from './Components/C19_UpdatingPhase';
 import { MountingPhase } from './Components/C20_Mounting';
 import { Time } from './Components/C21_TimeUseEff';
+import { Rest } from './Components/C22_RESTAPI';
+import { EmpRest } from './Components/C23_EmpRestApi';
+import { InsertEmp } from './Components/C24_InsertEmp';
 
 
 
@@ -32,7 +35,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 
-    {/* <App /> */}
+    <App />
     {/* <C1_Compo/> */}
     {/* <C2_FuncCompo/> */}
     {/* <Demo/> */}
@@ -53,10 +56,14 @@ root.render(
     {/* <HeaderBoot/> */}
     {/* <UpdatingPhase/> */}
     {/* <MountingPhase/> */}
+    {/* <Time/> */}
+    {/* <Rest/> */}
+    {/* <EmpRest/> */}
 
-    <Time/>
+    {/* <InsertEmp/> */}
 
   </React.StrictMode>
 );
 
 reportWebVitals();
+;
